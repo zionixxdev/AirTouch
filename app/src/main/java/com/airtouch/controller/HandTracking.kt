@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import com.google.mediapipe.framework.image.BitmapImageBuilder
 import com.google.mediapipe.framework.image.MPImage
 import com.google.mediapipe.tasks.core.BaseOptions
+import com.google.mediapipe.tasks.core.Delegate
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.google.mediapipe.tasks.vision.handlandmarker.HandLandmarker
 import com.google.mediapipe.tasks.vision.handlandmarker.HandLandmarkerResult
@@ -28,7 +29,7 @@ class HandTracking(
     private fun build(context: Context, config: GestureConfig): HandLandmarker {
         val baseOptions = BaseOptions.builder()
             .setModelAssetPath(MODEL_ASSET)
-            .setDelegate(BaseOptions.Delegate.CPU)
+            .setDelegate(Delegate.CPU)
             .build()
 
         val options = HandLandmarker.HandLandmarkerOptions.builder()

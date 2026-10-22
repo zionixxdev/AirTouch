@@ -139,7 +139,7 @@ class AirTouchService : LifecycleService() {
                 ControlAccessibilityService.instance?.tap(action.x, action.y)
 
             is GestureAction.Scroll ->
-                ControlAccessibilityService.instance?.scroll(lastCursorX, action.dyPx)
+                ControlAccessibilityService.instance?.scroll(lastCursorX, lastCursorY, action.dyPx)
 
             null -> Unit
         }

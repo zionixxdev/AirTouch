@@ -56,7 +56,7 @@ class ControlAccessibilityService : AccessibilityService() {
      * Swipe to scroll. [dyPx] is the desired content movement: positive scrolls
      * the content downward, which is a swipe from lower to upper on screen.
      */
-    fun scroll(x: Float, dyPx: Float): Boolean {
+    fun scroll(x: Float, y: Float, dyPx: Float): Boolean {
         if (busy) return false
         val metrics = resources.displayMetrics
         val width = metrics.widthPixels.toFloat()
