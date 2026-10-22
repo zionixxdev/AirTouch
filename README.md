@@ -101,19 +101,33 @@ never enables anything silently.
 
 ---
 
+## Build status
+
+The project **compiles successfully** in GitHub Actions. The first cloud run
+surfaced two compile errors, both now fixed:
+
+1. `ControlAccessibilityService.scroll()` referenced an undeclared `y`
+   parameter — the signature is now `scroll(x, y, dyPx)`.
+2. `BaseOptions.Delegate` does not exist — the delegate enum lives at
+   `com.google.mediapipe.tasks.core.Delegate`, and the code now imports and uses
+   `Delegate.CPU`.
+
+A green run produces `app-debug.apk` containing the MediaPipe model asset and
+native libraries for `arm64-v8a`, `armeabi-v7a`, `x86` and `x86_64`.
+
 ## Honest limitations
 
-- **Not a substitute for a full build.** This project was assembled and statically
-  checked, but it has **not** been compiled in a real Android/Gradle environment
-  from here, and the gestures have **not** been validated on a physical device.
-  The GitHub Actions build is the first real compile — treat its output as
-  authoritative and report any errors so they can be fixed with exact file
-  changes.
+- **Compiled, but not yet exercised on hardware.** The APK builds and packages
+  correctly; the gestures themselves have **not** been validated on a physical
+  device from here. Use `TESTING_CHECKLIST.md` to verify detection, pointer
+  movement, scroll direction, pinch-click, fist-pause and emergency stop.
 - Simulated accessibility input cannot reach every surface: protected system
   screens, secure windows, permission dialogs and some games refuse it.
 - Background camera access is subject to Android's foreground-service
   restrictions; tracking is designed to run while AirTouch is active.
 - Detection quality depends on lighting and how well your hand fills the frame.
+- The debug APK is ~59 MB because it bundles MediaPipe native libraries for four
+  ABIs. A release build with ABI splits would be far smaller.
 
 ## Privacy
 
