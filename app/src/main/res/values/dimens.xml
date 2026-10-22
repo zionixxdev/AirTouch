@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_padding">20dp</dimen>
+    <dimen name="panel_radius">20dp</dimen>
+    <dimen name="panel_padding">16dp</dimen>
+    <dimen name="gap">12dp</dimen>
+    <dimen name="cursor_size">40dp</dimen>
+    <dimen name="preview_height">220dp</dimen>
+</resources>

@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/build/
+
+# Downloaded at build time by CI / the setup guide — not committed
+app/src/main/assets/hand_landmarker.task
